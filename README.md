@@ -1,1 +1,1 @@
-# Sistemas_UnixLinux_Semana_2
+# Laboratorio 2
