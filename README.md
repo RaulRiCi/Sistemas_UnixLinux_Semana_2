@@ -35,4 +35,30 @@ Entra en el siguiente link(https://gparted.org/livecd.php) o realiza la busqueda
 
 ![GPARTEDes3](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GPARTEDDescargaFinal.png?raw=true)
 
-4. La sesion pasada montamos dos maquinas virtuales, uno con LVM y otra sin esta caracteristica para administrar volumenes logicos. Usaremos GParted en el sistema que instalamos sin LVM. Antes de ulizar dicha herramienta, entramos a nuestro sistema y ejecutamos "df -h" y "lsblk" para mostrar el uso del espacio en disco de los sistemas de archivos montados.
+4. La sesion pasada montamos dos maquinas virtuales, una con LVM y otra sin esta caracteristica para administrar volumenes logicos. Usaremos GParted en el sistema que instalamos sin LVM. Antes de ulizar dicha herramienta, entramos a nuestro sistema y ejecutamos "df -h" y "lsblk" para mostrar el uso del espacio en disco de los sistemas de archivos montados.
+
+![Comandos](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/IsblkSinLVM.png?raw=true)
+
+En dicha imagen podemos destacar lo siguiente para el comando df -h:
+
+- udev: Sistema de archivos virtual que usa 946 MB y está montado en /dev.
+- tmpfs: Sistema de archivos temporal, montado en /run con un tamaño de 194 MB.
+- /dev/sda1: Partición de 4.0 GB, con 1.4 GB usados y 2.4 GB disponibles, montada en /.
+- /dev/sda8: Partición de 13 GB, casi completamente disponible (12 GB), montada en /home.
+- /dev/sda7: Partición de 338 MB, con 316 MB disponibles, montada en /tmp.
+- /dev/sda5: Partición de 1.7 GB, con 1.3 GB disponibles, montada en /var.
+
+Los sistemas de archivos tmpfs también están presentes en otros puntos de montaje como /dev/shm, /run/lock, y /run/user/1000, todos ellos son sistemas temporales que generalmente almacenan datos volátiles en memoria RAM.
+
+En cuanto al comando lsblk, podemos destacar lo siguiente:
+
+- sda: Disco duro principal con un tamaño de 20G.
+- sda1: Partición de 4.1G montada en /.
+- sda2: Partición de 1K (probablemente una partición extendida).
+- sda5: Partición de 1.7G montada en /var.
+- sda6: Partición de 976M usada como SWAP.
+- sda7: Partición de 371M montada en /tmp.
+- sda8: Partición de 12.9G montada en /home.
+- sr0: Unidad de CD/DVD con un tamaño de 1024M.
+
+5. Despues de haber comprabado esta informacion, apagamos la maquina virtual
