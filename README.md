@@ -106,3 +106,49 @@ Particiones existentes:
 - Espacio sin asignar: Hay un pequeño espacio no asignado de 1.00 MiB al final del disco.
 
 Este esquema de particiones es típico en instalaciones de Linux, con una partición primaria para el arranque, una partición extendida que contiene múltiples particiones lógicas, incluyendo particiones para el sistema de archivos, intercambio (swap), y otros propósitos.
+
+9. Para comenzar con las modificaciones, comenzaremos modificando /dev/sda8.
+
+![Gparted5](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba.png?raw=true)
+
+![Gparted6](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba2.png?raw=true)
+
+La imagen muestra la ventana de "Resize/Move" (Redimensionar/Mover) en GParted para la partición /dev/sda8. En este cuadro de diálogo, se está ajustando el tamaño de la partición y la cantidad de espacio libre antes de ella.
+
+- Free space preceding (MiB): Se está configurando 5987 MiB de espacio libre antes de la partición /dev/sda8. Esto implica que la partición se moverá hacia la derecha, dejando espacio no asignado delante de ella.
+- New size (MiB): El nuevo tamaño de la partición se ha establecido en 7201 MiB. Esto indica que la partición se reducirá de su tamaño original para liberar espacio adicional.
+- Free space following (MiB): El valor es 0, lo que significa que no se dejará espacio libre después de la partición.
+
+![Gparted7](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba3.png?raw=true)
+
+Ahora muestra el resultado de las acciones que se muestran anteriormente.
+
+Partición /dev/sda8:
+
+- Ahora ha sido movida hacia la derecha, liberando 5.85 GiB de espacio no asignado (unallocated) entre las particiones lógicas dentro de la extendida.
+  Además, el tamaño de la partición /dev/sda8 se ha reducido de 12.88 GiB a 7.03 GiB.
+  Espacio no asignado:
+
+- Se ha creado un nuevo espacio no asignado de 5.85 GiB, que antes formaba parte de la partición /dev/sda8.
+
+10. Una vez creado el nuevo espacio, modificaremos las particiones /dev/sda5, /dev/sda6, /dev/sda7.
+
+![Gparted8](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba4.png?raw=true)
+
+![Gparted9](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba5.png?raw=true)
+
+- Primero modificamos /dev/sda7, moviendo su barra hasta la derecha para recorrerla, despues aplicamos los cambios.
+
+![Gparted10](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba6.png?raw=true)
+
+De esa manera, /dev/sda7 se recorrio y ahora esta entre el nuevo espacio no asignado de 5.85 GiB y /dev/sda8. Repetimos este paso con /dev/sda5 y /dev/sda6
+
+![Gparted11](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba7.png?raw=true)
+
+![Gparted12](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba6.png?raw=true)
+
+![Gparted13](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba6.png?raw=true)
+
+![Gparted14](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba6.png?raw=true)
+
+![Gparted15](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba6.png?raw=true)
