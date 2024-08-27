@@ -66,3 +66,43 @@ En cuanto al comando lsblk, podemos destacar lo siguiente:
 6. Vamos a la configuracion de la maquina virtual, en la parte de CD/DVD seleccionamos la ISO de GParted
 
 ![Settings](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/Settings.png?raw=true)
+
+![Settings2](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/Settings2.png?raw=true)
+
+![Settings3](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/Settings3.png?raw=true)
+
+NOTA: Es importante tener marcada la casilla "Connect at power on" para que al momento de iniciar la maquina virtual, muestre la instalacion de GParted, si ese no es el caso, entramos al Boot menu y seleccionamos la opcion de CD.
+
+7. Iniciamos la maquina virtual. Cuando nos muestre la instalacion de GParted, seleccionamos la primera opcion.
+
+![Gparted](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedInicio.png?raw=true)
+
+Seleccionamos la opcion "Don't touch keymap"
+
+![Gparted2](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedInicio2.png?raw=true)
+
+La instalacion desplegara una opciones que estan marcadas por default, aceptamos todas.
+
+![Gparted3](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedInicio3.png?raw=true)
+
+Despues de haber aceptado y finalizado la instalacion, GParted iniciara.
+
+8. Una vez iniciado GParted, podemos ver la informacion del disco
+
+![Gparted4](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedInicioFinal.png?raw=true)
+
+Podemos destacar la siguiente informacion:
+
+Disco seleccionado: /dev/sda con una capacidad total de 20.00 GiB.
+
+Particiones existentes:
+
+- /dev/sda1: Partición primaria con sistema de archivos ext4, tamaño de 4.12 GiB, y montada como partición de arranque (boot).
+- /dev/sda2: Partición extendida que abarca varias particiones lógicas.
+- /dev/sda5: Partición lógica dentro de la extendida, con sistema de archivos ext4, y un tamaño de 1.68 GiB.
+- /dev/sda6: Partición lógica usada como linux-swap con un tamaño de 976.00 MiB.
+- /dev/sda7: Otra partición lógica con sistema de archivos ext4, y un tamaño de 371.00 MiB.
+- /dev/sda8: Partición lógica con sistema de archivos ext4, y un tamaño de 12.88 GiB.
+- Espacio sin asignar: Hay un pequeño espacio no asignado de 1.00 MiB al final del disco.
+
+Este esquema de particiones es típico en instalaciones de Linux, con una partición primaria para el arranque, una partición extendida que contiene múltiples particiones lógicas, incluyendo particiones para el sistema de archivos, intercambio (swap), y otros propósitos.
