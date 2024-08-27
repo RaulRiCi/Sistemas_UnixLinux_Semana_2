@@ -62,3 +62,7 @@ En cuanto al comando lsblk, podemos destacar lo siguiente:
 - sr0: Unidad de CD/DVD con un tamaño de 1024M.
 
 5. Despues de haber comprabado esta informacion, apagamos la maquina virtual
+
+6. Vamos a la configuracion de la maquina virtual, en la parte de CD/DVD seleccionamos la ISO de GParted
+
+![Settings](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/Settings.png?raw=true)
