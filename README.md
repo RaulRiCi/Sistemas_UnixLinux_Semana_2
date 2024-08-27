@@ -186,3 +186,71 @@ Partición /dev/sda8:
 ![Gparted22](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba18.png?raw=true)
 
 # Configuración de discos con LVM (solo para VMs con LVM)
+
+Para esta parte, utilizacion de maquina virtual que creamos con las caracteristicas de LVM.
+
+NOTAS: Antes de iniciar el sistema, iremos a la parte de settings y realizaremos algunas modificaciones.
+
+1. Iremos a la parte de Hard Disk y haremos la expansion del disco.
+
+![LVM](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM2.png?raw=true)
+
+![LVM2](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM3.png?raw=true)
+
+Una vez aplicados los cambios, iniciamos el sistema.
+
+2. Despues de haber iniciado el sistema, comprobamos la informacion del disco.
+
+![LVM3](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM1.png?raw=true)
+
+Comando df -h:
+
+Muestra el uso del espacio en disco de cada sistema de archivos en formato legible por humanos.
+
+Los sistemas de archivos listados incluyen:
+
+- udev, tmpfs, y otros sistemas temporales (/run, /dev/shm, etc.).
+
+- El sistema de archivos principal en la raíz (/), montado en /dev/mapper/debian--vg-root.
+
+- El directorio /home, montado en /dev/mapper/debian--vg-home.
+
+- El directorio /boot, montado en /dev/sda1.
+
+- Los directorios /tmp y /var, montados en volúmenes lógicos específicos (/dev/mapper/debian--vg-tmp y /dev/mapper/debian--vg-var).
+
+- La columna Use% indica el porcentaje de espacio utilizado en cada sistema de archivos. Por ejemplo, / está utilizando el 36% de su capacidad total.
+
+Comando lsblk:
+
+Muestra una lista de dispositivos de bloques en el sistema, incluyendo discos duros, particiones y volúmenes lógicos.
+
+Se muestra que el disco sda tiene 20G de capacidad, con varias particiones:
+
+- sda1 (487M) montada en /boot.
+- sda2 (1K) parece ser una partición de tipo extendida.
+- sda5 (19.5G) que alberga los volúmenes lógicos de LVM.
+
+NOTAS: Para los siguientes pasos, realice una conexion con SSH con la terminal de Ubuntu, lo hice por temas de comodidad pero pueden seguir usando la terminal de Debian.
+
+3. Instalaremos las hertamientas necesarias para poder ejecutar los comando, en este caso "parted" y "e2fsprogs"
+
+![LVM4](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM4.png?raw=true)
+
+![LVM5](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM5.png?raw=true)
+
+![LVM6](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM6.png?raw=true)
+
+![LVM7](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM7.png?raw=true)
+
+![LVM8](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM8.png?raw=true)
+
+![LVM9](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM9.png?raw=true)
+
+![LVM10](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM10.png?raw=true)
+
+![LVM11](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM11.png?raw=true)
+
+![LVM12](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM12.png?raw=true)
+
+![LVM13](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM13.png?raw=true)
