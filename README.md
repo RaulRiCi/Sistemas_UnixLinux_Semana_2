@@ -1,6 +1,6 @@
 # Laboratorio 2
 
-# Instalar GParted
+# GParted
 
 ## Introduccion:
 
@@ -141,14 +141,48 @@ Partición /dev/sda8:
 
 ![Gparted10](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba6.png?raw=true)
 
-De esa manera, /dev/sda7 se recorrio y ahora esta entre el nuevo espacio no asignado de 5.85 GiB y /dev/sda8. Repetimos este paso con /dev/sda5 y /dev/sda6
+11. De esta manera, /dev/sda7 se recorrio y ahora esta entre el nuevo espacio no asignado de 5.85 GiB y /dev/sda8. Repetimos este paso con /dev/sda5 y /dev/sda6. Esto con la intencion de mover el nuevo espacio al lado de /dev/sda1.
 
 ![Gparted11](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba7.png?raw=true)
 
-![Gparted12](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba6.png?raw=true)
+![Gparted12](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba8.png?raw=true)
 
-![Gparted13](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba6.png?raw=true)
+12. Como ultimo paso, modificaremos /dev/sda2 para poder asignar el espacio no asignado a /dev/sda1
 
-![Gparted14](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba6.png?raw=true)
+![Gparted13](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba9.png?raw=true)
 
-![Gparted15](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba6.png?raw=true)
+13. Asignamos la cantidad de la barra azul correspondiente a /dev/sda2 al mismo nivel que la barra amarilla correspondiente a /dev/sda5
+
+![Gparted14](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba10.png?raw=true)
+
+14. Despues de aplicar los cambios, podremos asignar el espacio a /dev/sda1
+
+![Gparted15](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba11.png?raw=true)
+
+![Gparted16](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba12.png?raw=true)
+
+15. Modificamos la barra de /dev/sda1 recorriendola hasta la derechas, ya que dicho espacio corresponde al no asignado.
+
+![Gparted17](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba13.png?raw=true)
+
+- Al aplicar los cambios, /dev/sda1 implementara el espacio libre al suyo. Pasando de pesar 4.12 GiB, a pesar 9.96 GiB.
+
+![Gparted18](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba14.png?raw=true)
+
+16. Despues de haber aplicado todos estos cambios, guardamos todo dando click en la flecha verde.
+
+![Gparted19](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba15.png?raw=true)
+
+17. Cerramos la ventana de GParted y salimos de la herramienta dando click en Exit.
+
+![Gparted20](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba16.png?raw=true)
+
+18. Volvemos a las settings de la maquina virual y en la parte de CD/DVD, seleccionamos la opcion "Use physical drive" para volver a iniciar el sistema de debian con la terminal.
+
+![Gparted21](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba17.png?raw=true)
+
+19. Para comprobar los cambios realizados en GParted, volvemos a ejevutar los comandos "df -h" y "lsblk".
+
+![Gparted22](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba18.png?raw=true)
+
+# Configuración de discos con LVM (solo para VMs con LVM)
