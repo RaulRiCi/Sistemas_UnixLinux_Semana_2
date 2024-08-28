@@ -21,21 +21,21 @@ GParted está disponible en la mayoría de las distribuciones de Linux y tambié
 
 1. Descargar GParted:
 
-Entra en el siguiente link(https://gparted.org/livecd.php) o realiza la busqueda.
+Entra en el siguiente link(https://gparted.org/livecd.php) o realiza la búsqueda.
 
 ![GPARTED](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GPARTEDBUSQUEDA.png?raw=true)
 
-2. Dentro de la pagina, ve a la pestaña de Downloads y selecciona la opcion "Download gparted-live-1.6.0-3-amd64.iso".
+2. Dentro de la página, ve a la pestaña de Downloads y selecciona la opción "Download gparted-live-1.6.0-3-amd64.iso".
 
 ![GPARTEDes](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GPARTEDDescarga.png?raw=true)
 
-3. Dentro de la siguiente pagina se comenzara la descarga y esperamos a que esta termine.
+3. Dentro de la siguiente página se comenzará la descarga y esperamos a que esta termine.
 
 ![GPARTEDes2](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GPARTEDDescarga2.png?raw=true)
 
 ![GPARTEDes3](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GPARTEDDescargaFinal.png?raw=true)
 
-4. La sesion pasada montamos dos maquinas virtuales, una con LVM y otra sin esta caracteristica para administrar volumenes logicos. Usaremos GParted en el sistema que instalamos sin LVM. Antes de ulizar dicha herramienta, entramos a nuestro sistema y ejecutamos "df -h" y "lsblk" para mostrar el uso del espacio en disco de los sistemas de archivos montados.
+4. La sesión pasada montamos dos máquinas virtuales, una con LVM y otra sin esta característica para administrar volúmenes lógicos. Usaremos GParted en el sistema que instalamos sin LVM. Antes de utilizar dicha herramienta, entramos a nuestro sistema y ejecutamos "df -h" y "lsblk" para mostrar el uso del espacio en disco de los sistemas de archivos montados.
 
 ![Comandos](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/IsblkSinLVM.png?raw=true)
 
@@ -61,9 +61,9 @@ En cuanto al comando lsblk, podemos destacar lo siguiente:
 - sda8: Partición de 12.9G montada en /home.
 - sr0: Unidad de CD/DVD con un tamaño de 1024M.
 
-5. Despues de haber comprabado esta informacion, apagamos la maquina virtual
+5. Después de haber comprobado esta información, apagamos la máquina virtual.
 
-6. Vamos a la configuracion de la maquina virtual, en la parte de CD/DVD seleccionamos la ISO de GParted
+6. Vamos a la configuración de la máquina virtual, en la parte de CD/DVD seleccionamos la ISO de GParted.
 
 ![Settings](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/Settings.png?raw=true)
 
@@ -71,27 +71,27 @@ En cuanto al comando lsblk, podemos destacar lo siguiente:
 
 ![Settings3](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/Settings3.png?raw=true)
 
-NOTA: Es importante tener marcada la casilla "Connect at power on" para que al momento de iniciar la maquina virtual, muestre la instalacion de GParted, si ese no es el caso, entramos al Boot menu y seleccionamos la opcion de CD.
+NOTA: Es importante tener marcada la casilla "Connect at power on" para que al momento de iniciar la máquina virtual, muestre la instalación de GParted, si ese no es el caso, entramos al Boot menu y seleccionamos la opción de CD.
 
-7. Iniciamos la maquina virtual. Cuando nos muestre la instalacion de GParted, seleccionamos la primera opcion.
+7. Iniciamos la máquina virtual. Cuando nos muestre la instalación de GParted, seleccionamos la primera opción.
 
 ![Gparted](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedInicio.png?raw=true)
 
-Seleccionamos la opcion "Don't touch keymap"
+Seleccionamos la opción "Don't touch keymap"
 
 ![Gparted2](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedInicio2.png?raw=true)
 
-La instalacion desplegara una opciones que estan marcadas por default, aceptamos todas.
+La instalación desplegará unas opciones que estás marcadas por default, aceptamos todas.
 
 ![Gparted3](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedInicio3.png?raw=true)
 
-Despues de haber aceptado y finalizado la instalacion, GParted iniciara.
+Después de haber aceptado y finalizado la instalación, GParted iniciará.
 
-8. Una vez iniciado GParted, podemos ver la informacion del disco
+8. Una vez iniciado GParted, podemos ver la informacion del disco.
 
 ![Gparted4](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedInicioFinal.png?raw=true)
 
-Podemos destacar la siguiente informacion:
+Podemos destacar la siguiente información:
 
 Disco seleccionado: /dev/sda con una capacidad total de 20.00 GiB.
 
@@ -125,9 +125,7 @@ Ahora muestra el resultado de las acciones que se muestran anteriormente.
 
 Partición /dev/sda8:
 
-- Ahora ha sido movida hacia la derecha, liberando 5.85 GiB de espacio no asignado (unallocated) entre las particiones lógicas dentro de la extendida.
-  Además, el tamaño de la partición /dev/sda8 se ha reducido de 12.88 GiB a 7.03 GiB.
-  Espacio no asignado:
+- Ahora ha sido movida hacia la derecha, liberando 5.85 GiB de espacio no asignado (unallocated) entre las particiones lógicas dentro de la extendida Además, el tamaño de la partición /dev/sda8 se ha reducido de 12.88 GiB a 7.03 GiB.Espacio no asignado:
 
 - Se ha creado un nuevo espacio no asignado de 5.85 GiB, que antes formaba parte de la partición /dev/sda8.
 
@@ -137,39 +135,39 @@ Partición /dev/sda8:
 
 ![Gparted9](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba5.png?raw=true)
 
-- Primero modificamos /dev/sda7, moviendo su barra hasta la derecha para recorrerla, despues aplicamos los cambios.
+- Primero modificamos /dev/sda7, moviendo su barra hasta la derecha para recorrerla, después aplicamos los cambios.
 
 ![Gparted10](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba6.png?raw=true)
 
-11. De esta manera, /dev/sda7 se recorrio y ahora esta entre el nuevo espacio no asignado de 5.85 GiB y /dev/sda8. Repetimos este paso con /dev/sda5 y /dev/sda6. Esto con la intencion de mover el nuevo espacio al lado de /dev/sda1.
+11. De esta manera, /dev/sda7 se recorrió y ahora está entre el nuevo espacio no asignado de 5.85 GiB y /dev/sda8. Repetimos este paso con /dev/sda5 y /dev/sda6. Esto con la intención de mover el nuevo espacio al lado de /dev/sda1.
 
 ![Gparted11](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba7.png?raw=true)
 
 ![Gparted12](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba8.png?raw=true)
 
-12. Como ultimo paso, modificaremos /dev/sda2 para poder asignar el espacio no asignado a /dev/sda1
+12. Como último paso, modificaremos /dev/sda2 para poder asignar el espacio no asignado a /dev/sda1.
 
 ![Gparted13](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba9.png?raw=true)
 
-13. Asignamos la cantidad de la barra azul correspondiente a /dev/sda2 al mismo nivel que la barra amarilla correspondiente a /dev/sda5
+13. Asignamos la cantidad de la barra azul correspondiente a /dev/sda2 al mismo nivel que la barra amarilla correspondiente a /dev/sda5.
 
 ![Gparted14](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba10.png?raw=true)
 
-14. Despues de aplicar los cambios, podremos asignar el espacio a /dev/sda1
+14. Después de aplicar los cambios, podremos asignar el espacio a /dev/sda1
 
 ![Gparted15](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba11.png?raw=true)
 
 ![Gparted16](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba12.png?raw=true)
 
-15. Modificamos la barra de /dev/sda1 recorriendola hasta la derechas, ya que dicho espacio corresponde al no asignado.
+15. Modificamos la barra de /dev/sda1 recorriéndola hasta la derecha, ya que dicho espacio corresponde al no asignado.
 
 ![Gparted17](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba13.png?raw=true)
 
-- Al aplicar los cambios, /dev/sda1 implementara el espacio libre al suyo. Pasando de pesar 4.12 GiB, a pesar 9.96 GiB.
+- Al aplicar los cambios, /dev/sda1 implementará el espacio libre al suyo. Pasando de pesar 4.12 GiB, a pesar 9.96 GiB.
 
 ![Gparted18](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba14.png?raw=true)
 
-16. Despues de haber aplicado todos estos cambios, guardamos todo dando click en la flecha verde.
+16. Después de haber aplicado todos estos cambios, guardamos todo dando click en la flecha verde.
 
 ![Gparted19](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba15.png?raw=true)
 
@@ -177,21 +175,21 @@ Partición /dev/sda8:
 
 ![Gparted20](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba16.png?raw=true)
 
-18. Volvemos a las settings de la maquina virual y en la parte de CD/DVD, seleccionamos la opcion "Use physical drive" para volver a iniciar el sistema de debian con la terminal.
+18. Volvemos a las settings de la máquina virtual y en la parte de CD/DVD, seleccionamos la opción "Use physical drive" para volver a iniciar el sistema de debian con la terminal.
 
 ![Gparted21](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba17.png?raw=true)
 
-19. Para comprobar los cambios realizados en GParted, volvemos a ejevutar los comandos "df -h" y "lsblk".
+19. Para comprobar los cambios realizados en GParted, volvemos a ejecutar los comandos "df -h" y "lsblk".
 
 ![Gparted22](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/GpartedPrueba18.png?raw=true)
 
 # Configuración de discos con LVM (solo para VMs con LVM)
 
-Para esta parte, utilizacion de maquina virtual que creamos con las caracteristicas de LVM.
+Para esta parte, utilización de máquina virtual que creamos con las características de LVM.
 
 NOTAS: Antes de iniciar el sistema, iremos a la parte de settings y realizaremos algunas modificaciones.
 
-1. Iremos a la parte de Hard Disk y haremos la expansion del disco.
+1. Iremos a la parte de Hard Disk y haremos la expansión del disco.
 
 ![LVM](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM2.png?raw=true)
 
@@ -199,7 +197,7 @@ NOTAS: Antes de iniciar el sistema, iremos a la parte de settings y realizaremos
 
 Una vez aplicados los cambios, iniciamos el sistema.
 
-2. Despues de haber iniciado el sistema, comprobamos la informacion del disco.
+2. Después de haber iniciado el sistema, comprobamos la información del disco.
 
 ![LVM3](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM1.png?raw=true)
 
@@ -231,9 +229,9 @@ Se muestra que el disco sda tiene 20G de capacidad, con varias particiones:
 - sda2 (1K) parece ser una partición de tipo extendida.
 - sda5 (19.5G) que alberga los volúmenes lógicos de LVM.
 
-NOTAS: Para los siguientes pasos, realice una conexion con SSH con la terminal de Ubuntu, lo hice por temas de comodidad pero pueden seguir usando la terminal de Debian.
+NOTAS: Para los siguientes pasos, realice una conexión con SSH con la terminal de Ubuntu, lo hice por temas de comodidad, pero pueden seguir usando la terminal de Debian.
 
-3. Instalaremos las hertamientas necesarias para poder ejecutar los comando, en este caso "parted", "e2fsprogs" y "echo".
+3. Instalaremos las herramientas necesarias para poder ejecutar los comando, en este caso "parted", "e2fsprogs" y "echo".
 
 - echo: Este comando ya está disponible por defecto en prácticamente cualquier sistema Linux, incluido Debian.
 
@@ -245,7 +243,7 @@ NOTAS: Para los siguientes pasos, realice una conexion con SSH con la terminal d
 
 ![LVM5](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM5.png?raw=true)
 
-4. Verificar los dispositivos SCSI disponibles: Puedes listar los dispositivos SCSI disponibles en tu sistema con el siguiente comando
+4. Verificar los dispositivos SCSI disponibles: Puedes listar los dispositivos SCSI disponibles en tu sistema con el siguiente comando.
 
 ![LVM6](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM6.png?raw=true)
 
