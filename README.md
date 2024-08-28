@@ -233,24 +233,79 @@ Se muestra que el disco sda tiene 20G de capacidad, con varias particiones:
 
 NOTAS: Para los siguientes pasos, realice una conexion con SSH con la terminal de Ubuntu, lo hice por temas de comodidad pero pueden seguir usando la terminal de Debian.
 
-3. Instalaremos las hertamientas necesarias para poder ejecutar los comando, en este caso "parted" y "e2fsprogs"
+3. Instalaremos las hertamientas necesarias para poder ejecutar los comando, en este caso "parted", "e2fsprogs" y "echo".
+
+- echo: Este comando ya está disponible por defecto en prácticamente cualquier sistema Linux, incluido Debian.
+
+- parted: Herramienta para manipular particiones de discos. Debes instalar el paquete parted
+
+- resize2fs: Herramienta para redimensionar sistemas de archivos ext2/ext3/ext4. Debes instalar el paquete e2fsprogs.
 
 ![LVM4](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM4.png?raw=true)
 
 ![LVM5](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM5.png?raw=true)
 
+4. Verificar los dispositivos SCSI disponibles: Puedes listar los dispositivos SCSI disponibles en tu sistema con el siguiente comando
+
 ![LVM6](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM6.png?raw=true)
 
 ![LVM7](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM7.png?raw=true)
 
+5. Este comando le indica al sistema operativo que realice un "rescan" del dispositivo SCSI identificado por 32:0:0:0 y específicamente del disco sda. Esto es útil cuando has realizado cambios en la configuración del disco (por ejemplo, agregado espacio adicional a un disco virtual en un entorno como VMware) y quieres que el sistema detecte esos cambios sin reiniciar.
+
 ![LVM8](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM8.png?raw=true)
+
+6. parted es una herramienta para manipular particiones en discos. El comando abre el disco /dev/sda para su modificación. El subcomando print muestra la tabla de particiones actual del disco.
 
 ![LVM9](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM9.png?raw=true)
 
+7. Muestra la salida del comando parted utilizado para gestionar particiones en un disco en un entorno GNU/Linux. Específicamente, se está utilizando el disco /dev/sda, que es un disco virtual en VMware con una capacidad de 32.2 GB y un tamaño de sector de 512B.
+
+El disco tiene una tabla de particiones de tipo MBR (msdos), y las particiones son las siguientes:
+
+- Partición 1:
+
+Inicio: 1049kB
+Fin: 512MB
+Tamaño: 511MB
+Tipo: Primaria
+Sistema de archivos: ext2
+Flags: boot (indicando que es una partición de arranque)
+
+- Partición 2:
+
+Inicio: 513MB
+Fin: 21.5GB
+Tamaño: 21.0GB
+Tipo: Extendida
+No tiene un sistema de archivos directamente porque es un contenedor para particiones lógicas.
+
+- Partición 5:
+
+Inicio: 513MB
+Fin: 21.5GB
+Tamaño: 21.0GB
+Tipo: Lógica
+Sistema de archivos: lvm (indica que esta partición se usa para LVM, Logical Volume Management)
+
 ![LVM10](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM10.png?raw=true)
+
+8. El comando resizepart 2 100% que aparece al final de la imagen está indicando que se intenta redimensionar la partición 2 (la extendida) para que ocupe el 100% del espacio disponible en el disco.
 
 ![LVM11](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM11.png?raw=true)
 
 ![LVM12](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM12.png?raw=true)
 
+9. Este comando, ejecutado en un sistema operativo Debian con privilegios de root, está intentando expandir un volumen lógico (LV). Específicamente, busca aumentar el tamaño del LV denominado /dev/mapper/debian--vg-root hasta ocupar todo el espacio libre (100%FREE) disponible en el grupo de volúmenes (VG).
+
+- lvextend: Esta es la herramienta de línea de comandos utilizada para administrar volúmenes lógicos en sistemas Linux que utilizan LVM (Logical Volume Manager).
+- -L +100%FREE: Esta opción indica que se debe aumentar el tamaño del LV en una cantidad igual al 100% del espacio libre disponible en el VG.
+- /dev/mapper/debian--vg-root: Este es el nombre del LV que se desea expandir. El nombre suele seguir un patrón que indica el VG al que pertenece (debian--vg) y el nombre del LV (root).
+
 ![LVM13](https://github.com/RaulRiCi/Sistemas_UnixLinux_Semana_2/blob/main/GPARTED/LVM13.png?raw=true)
+
+10. El comando resize2fs se utiliza en sistemas Linux para modificar el tamaño de un sistema de archivos ext2, ext3 o ext4.
+
+- resize2fs /dev/mapper/debian--vg-root: Este es el comando principal. Se está intentando redimensionar el sistema de archivos ubicado en el dispositivo de bloque /dev/mapper/debian--vg-root. Este dispositivo, como vimos antes, es un volumen lógico (LV) manejado por LVM.
+- resize2fs 1.47.0 (5-Feb-2023): Esta línea muestra la versión de la herramienta resize2fs que se está utilizando.
+- The filesystem is already 1056768 (4k) blocks long. Nothing to do!: Este mensaje es el resultado de ejecutar el comando. Indica que el sistema de archivos ya tiene el tamaño máximo posible, por lo que no se realizaron cambios.
